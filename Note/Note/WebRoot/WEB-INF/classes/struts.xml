@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default" namespace="">
+      
+      <action name="login" class="Action.Login">
+         <result name="login success">/Homepage.jsp</result>
+         <result name="login fail">/Login.jsp</result>
+         <result name="go to register">/Register.jsp</result>
+      </action>
+       
+      <action name="register" class="Action.Register">
+         <result name="register success">/Homepage.jsp</result>
+         <result name="register fail">/Register.jsp</result>
+      </action>
+      <action name="createtopic_*" class="Action.CreateTopic" method="{1}">
+         <result name="create success">/CreateTopic.jsp</result>
+         <result name="create fail">/CreateTopic.jsp</result>
+         <result name="invite success">/CreateTopic.jsp</result>
+         <result name="invite fail">/CreateTopic.jsp</result>
+         <result name="go to create">/CreateTopic.jsp</result>
+      </action>
+      
+      <action name="topic_*" class="Action.Topic" method="{1}">
+         <result name="show host topic success">/HostTopic.jsp</result>
+         <result name="go publish">/GoPublish.jsp</result>
+      </action>
+       
+   	</package>
+</struts>    
