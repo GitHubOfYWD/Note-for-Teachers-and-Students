@@ -72,7 +72,21 @@ public class Login implements Action{
 	}
 	
 	public String execute() throws Exception {
-		return "login fail";
+		Mysql sql=new Mysql();
+		System.out.println(password);
+		ht=new ArrayList<UserTopic>();
+		it=new ArrayList<UserTopic>();
+		if(sql.Login(username,password).equals("success")){
+			message="login success";
+			System.out.println(message);
+			sql.UserTopic(username,ht,it);
+			System.out.println("here");
+			return "login success";
+		}
+		else{
+			message="the username doesn't exist or the password is not correct";
+			return "login fail";
+		}
 	}
 }
 

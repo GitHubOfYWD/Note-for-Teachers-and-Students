@@ -5,9 +5,25 @@ import com.opensymphony.xwork2.Action;
 public class CreateTopic implements Action {
 	public String topic=new String();
 	public String topicmessage=new String();
+	public String invitemessage=new String();
 	public String username=new String();
+	public String password=new String();
+	public String host=new String();
 	public String invitename=new String();
 	
+	
+	public void setHost(String host){
+		this.host=host;
+	}
+	public String getHost(){
+		return this.host;
+	}
+	public void setPassword(String password){
+		this.password=password;
+	}
+	public String getPassword(){
+		return this.password;
+	}
 	public void setUsername(String username){
 		this.username=username;
 	}
@@ -29,6 +45,12 @@ public class CreateTopic implements Action {
 		return this.topic;
 	}
 	
+	public void setInvitemessage(String invite){
+		this.invitemessage=invitemessage;
+	}
+	public String getInvitemessage(){
+		return this.invitemessage;
+	}
 	public void setTopicmessage(String topic){
 		this.topicmessage=topicmessage;
 	}
@@ -64,9 +86,10 @@ public class CreateTopic implements Action {
 			return "invite success";
 		}
 		else{
-			topicmessage="The user has been already invited";
+			topicmessage="The user has been already invited or no such user";
 			return "invite fail";
 		}
 	}
+	
 
 }

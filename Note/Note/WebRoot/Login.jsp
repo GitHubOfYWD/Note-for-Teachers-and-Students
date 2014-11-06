@@ -3,6 +3,7 @@
 <html>
 
 <head>
+<link rel="stylesheet" type="text/css" href="mycss/style.css">
 <style type="text/css">
 		body{text-align:center;}
 		div{text-align:center;}

@@ -10,7 +10,7 @@
 </s:form>
 
 <s:form>
-<s:a href="createtopic_Go.action?username=%{username}">创建讨论</s:a>
+<s:a href="createtopic_Go.action?username=%{username}&password=%{password}&host=%{host}">创建讨论</s:a>
 </s:form>
 
 
@@ -26,7 +26,7 @@
     </tr>
     <s:iterator value="ht" status="satt">
     <tr>
-      <td> <s:a href="topic_ShowHost.action?username=%{host}&topic=%{topic}"><s:property value="topic"/></s:a></td>
+      <td> <s:a href="topic_ShowHost.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><s:property value="topic"/></s:a></td>
       <td><s:property value="host"/></td>
     </tr>
     </s:iterator>
@@ -48,7 +48,7 @@
     </tr>
     <s:iterator value="it" status="satt">
     <tr>
-      <td><s:property value="topic"/></td>
+      <td><s:a href="topic_ShowInvited.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><s:property value="topic"/></s:a></td>
       <td><s:property value="host"/></td>
     </tr>
     </s:iterator>

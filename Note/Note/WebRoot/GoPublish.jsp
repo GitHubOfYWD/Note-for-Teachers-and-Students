@@ -15,11 +15,22 @@
 
 <s:form action="topic_Publish" align="center">
 <s:textfield name="username" value="%{username}" style="display:none"/>
-<s:textfield name="topic"  value="%{topic}" style="display:none"/>
-<s:textarea name="message" align="center" width="300" height="100"/>
+<s:textfield name="topic"   value="%{topic}" style="display:none"/>
+<s:textfield name="password"   value="%{password}" style="display:none"/>
+<s:textfield name="host"   value="%{host}" style="display:none"/>
+<s:textarea rows="10" cols="50" name="pmessage" align="center" width="300" height="100"/>
 <s:submit style="width:100px" align="center" value="发布"/>
 </s:form>
 
+<s:form align="center">
+<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
+</s:form>
+
+<form>
+	<tr>
+      <td><s:a href="login.action?username=%{username}&password=%{password}">主页</s:a></td>
+    </tr>
+</form>
 	
 </table>
 

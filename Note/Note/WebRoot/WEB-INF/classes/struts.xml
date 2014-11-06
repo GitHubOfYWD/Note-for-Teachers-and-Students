@@ -6,26 +6,31 @@
 	<package name="default" extends="struts-default" namespace="">
       
       <action name="login" class="Action.Login">
-         <result name="login success">/Homepage.jsp</result>
-         <result name="login fail">/Login.jsp</result>
-         <result name="go to register">/Register.jsp</result>
+         <result name="login success">/Homepage1.jsp</result>
+         <result name="login fail">/Login1.jsp</result>
+         <result name="go to register">/Register1.jsp</result>
       </action>
        
       <action name="register" class="Action.Register">
-         <result name="register success">/Homepage.jsp</result>
-         <result name="register fail">/Register.jsp</result>
+         <result name="register success">/Homepage1.jsp</result>
+         <result name="register fail">/Register1.jsp</result>
       </action>
       <action name="createtopic_*" class="Action.CreateTopic" method="{1}">
-         <result name="create success">/CreateTopic.jsp</result>
-         <result name="create fail">/CreateTopic.jsp</result>
-         <result name="invite success">/CreateTopic.jsp</result>
-         <result name="invite fail">/CreateTopic.jsp</result>
-         <result name="go to create">/CreateTopic.jsp</result>
+         <result name="create success">/CreateTopic1.jsp</result>
+         <result name="create fail">/CreateTopic1.jsp</result>
+         <result name="invite success">/CreateTopic1.jsp</result>
+         <result name="invite fail">/CreateTopic1.jsp</result>
+         <result name="go to create">/CreateTopic1.jsp</result>
       </action>
       
       <action name="topic_*" class="Action.Topic" method="{1}">
-         <result name="show host topic success">/HostTopic.jsp</result>
-         <result name="go publish">/GoPublish.jsp</result>
+         <result name="show host topic success">/HostTopic1.jsp</result>
+         <result name="invite">/HostTopic1.jsp</result>
+         <result name="show invited topic success">/InvitedTopic1.jsp</result>
+         <result name="go publish">/GoPublish1.jsp</result>
+         <result name="publish">/GoPublish1.jsp</result>
+         <result name="show member">/ShowMember.jsp</result>
+         <result name="show topic member message success">/ShowTopicMemMessage.jsp</result>
       </action>
        
    	</package>
