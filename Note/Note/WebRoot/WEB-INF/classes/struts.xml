@@ -25,12 +25,13 @@
       
       <action name="topic_*" class="Action.Topic" method="{1}">
          <result name="show host topic success">/HostTopic1.jsp</result>
-         <result name="invite">/HostTopic1.jsp</result>
+         <result name="invite">/MyTopicMessage.jsp</result>
          <result name="show invited topic success">/InvitedTopic1.jsp</result>
          <result name="go publish">/GoPublish1.jsp</result>
          <result name="publish">/GoPublish1.jsp</result>
          <result name="show member">/ShowMember.jsp</result>
-         <result name="show topic member message success">/ShowTopicMemMessage.jsp</result>
+         <result name="show my topic message">/MyTopicMessage.jsp</result>
+         <result name="show others topic message">/OthersTopicMessage.jsp</result>
       </action>
        
    	</package>

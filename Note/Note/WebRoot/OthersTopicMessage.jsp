@@ -29,6 +29,7 @@
 					<br>
 					<s:form>
 						<tr><td><strong><font size="5"><s:property value="topic" /></font></strong></td></tr>
+						<tr><td><strong><font size="5"><s:property value="author" />的观点</font></strong></td></tr>
 					</s:form>
 					<br>	
 					<s:form>

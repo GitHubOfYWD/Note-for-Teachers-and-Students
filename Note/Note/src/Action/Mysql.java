@@ -71,7 +71,7 @@ public class Mysql {
 		}
 	}
 	
-	public String InviteUser(String topic,String username,String invitename) {
+	public String InviteUser(String topic,String username,String invitename,String host) {
 		conn = getConnection();
 		try {
 			String sql = "select * from user where username='"+invitename+"'";
@@ -85,13 +85,13 @@ public class Mysql {
 			if(topic.equals("")){
 				return "fail";
 			}
-			sql = "select * from userinfo where username='"+invitename+ "' and topic='"+topic+"' and host='"+username+"'";
+			sql = "select * from userinfo where username='"+invitename+ "' and topic='"+topic+"' and host='"+host+"'";
 			st = (Statement) conn.createStatement();
 			rs = st.executeQuery(sql);
 			if (rs.next()) {
 				return "fail";
 			}
-			sql = "insert into userinfo(username,topic,host,flag) values('"+ invitename + "','" + topic + "','"+username+"','0')";
+			sql = "insert into userinfo(username,topic,host,flag) values('"+ invitename + "','" + topic + "','"+host+"','0')";
 			st = (Statement) conn.createStatement();
 			st.execute(sql);
 			conn.close();

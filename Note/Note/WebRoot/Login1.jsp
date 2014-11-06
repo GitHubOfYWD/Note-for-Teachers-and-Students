@@ -56,7 +56,7 @@
 					
 					<h2>Members Login</h2>
 					<label>name</label>
-					<input name="username" type="text" tabindex="1" id="username" /><br class="spacer" />
+					<input name="username" type="text" tabindex="1" id="username" value="TOM"/><br class="spacer" />
 					<label>password</label>
 					<input name="password" type="text" tabindex="2" id="password" /><br class="spacer" />
 					<input name="" type="image" src="images/login_btn.gif" tabindex="3" title="Login" class="loginBtn"/>

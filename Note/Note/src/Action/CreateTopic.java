@@ -10,8 +10,15 @@ public class CreateTopic implements Action {
 	public String password=new String();
 	public String host=new String();
 	public String invitename=new String();
+	public String author=new String();
 	
 	
+	public void setAuthor(String author){
+		this.author=author;
+	}
+	public String getAuthor(){
+		return this.author;
+	}
 	public void setHost(String host){
 		this.host=host;
 	}
@@ -81,7 +88,7 @@ public class CreateTopic implements Action {
 	
 	public String Invite(){
 		Mysql sql=new Mysql();
-		if(sql.InviteUser(topic,username,invitename).equals("success")){
+		if(sql.InviteUser(topic,username,invitename,author).equals("success")){
 			topicmessage="Invite successfully";
 			return "invite success";
 		}

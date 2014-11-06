@@ -134,14 +134,14 @@ public class Topic implements Action {
 	
 	public String Invite(){
 		Mysql sql=new Mysql();
-		if(sql.InviteUser(topic,username,invitename).equals("success")){
+		if(sql.InviteUser(topic,username,invitename,host).equals("success")){
 			message="Invite successfully";
 		}
 		else{
 			message="The user has been already invited or no such user";
 		}
-		tpm=new ArrayList<TopicMessage>();
-		sql.GetTopic(tpm,topic,host);
+		tmm=new ArrayList<TopicMemMessage>();
+		sql.ShowMessage(tmm,topic,author,host);
 		return "invite";
 	}
 	
@@ -151,7 +151,12 @@ public class Topic implements Action {
 		Mysql sql=new Mysql();
 		sql.ShowMessage(tmm,topic,author,host);
 		System.out.println("show topic member message success");
-		return "show topic member message success";
+		if(author.equals(username)){
+			return "show my topic message";
+		}
+		else{
+			return "show others topic message";
+		}
 	}
 	
 }

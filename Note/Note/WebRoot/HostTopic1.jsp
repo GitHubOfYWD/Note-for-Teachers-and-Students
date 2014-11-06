@@ -65,7 +65,7 @@
     					  <td><font size="3">创建人</font></td>
     					  <td><font size="3">发布时间</font></td>
     					</tr>
-                	 <s:iterator value="tpm">
+                	 <s:iterator value="tmm">
                     	 <tr>
                       	 <td><font size="3"><s:property value="topic"/></font></td>
                      	  <td><font size="3"><s:property value="host"/></font></td>
