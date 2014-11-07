@@ -1,5 +1,7 @@
 package Action;
 
+import java.util.ArrayList;
+
 import com.opensymphony.xwork2.Action;
 
 public class CreateTopic implements Action {
@@ -84,6 +86,19 @@ public class CreateTopic implements Action {
 	public String Go(){
 		System.out.println("go to create");
 		return "go to create";
+	}
+	
+	public String SentInvitation(){
+		Mysql sql=new Mysql();
+		String tmp=new String();
+		tmp=sql.SentInvitation(topic,username,invitename,username);
+		if(tmp.equals("success")){
+			topicmessage="Invite successfully";
+		}
+		else{
+			topicmessage=tmp;
+		}
+		return "sent invitation";
 	}
 	
 	public String Invite(){

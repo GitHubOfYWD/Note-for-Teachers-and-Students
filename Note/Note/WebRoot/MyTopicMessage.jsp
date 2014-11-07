@@ -38,7 +38,7 @@
 					<s:form>
 					<a><strong><font size="2">邀请组员</font></strong></a> <br class="spacer" />
 					</s:form>
-					<s:form action="topic_Invite" theme="simple">
+					<s:form action="topic_SentInvitation" theme="simple">
 					<s:textfield name="username" label="用户：" value="%{username}" style="display:none"/>
 					<s:textfield name="password"   value="%{password}" style="display:none"/>
 					<s:textfield name="topic" label="话题：" value="%{topic}" style="display:none"/>

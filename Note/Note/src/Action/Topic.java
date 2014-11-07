@@ -132,6 +132,22 @@ public class Topic implements Action {
 		return "show member";
 	}
 	
+	
+	public String SentInvitation(){
+		Mysql sql=new Mysql();
+		String tmp=new String();
+		tmp=sql.SentInvitation(topic,username,invitename,host);
+		if(tmp.equals("success")){
+			message="Invite successfully";
+		}
+		else{
+			message=tmp;
+		}
+		tmm=new ArrayList<TopicMemMessage>();
+		sql.ShowMessage(tmm,topic,author,host);
+		return "sent invitation";
+	}
+	
 	public String Invite(){
 		Mysql sql=new Mysql();
 		if(sql.InviteUser(topic,username,invitename,host).equals("success")){

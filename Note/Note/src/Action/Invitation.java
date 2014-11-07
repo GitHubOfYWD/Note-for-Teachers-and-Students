@@ -7,40 +7,17 @@ import java.util.List;
 import com.opensymphony.xwork2.Action;
 
 
-public class Login implements Action{
+public class Invitation implements Action{
 	public String username=new String();
 	public String password=new String();
-	public String message=new String();
-	public String newinvitation=new String();
-	public List<UserTopic> ht;
-	public List<UserTopic> it;
+	public List<Invite> iv;
 	
-	
-	public void setNewinvitation(String newinvitation){
-		this.newinvitation=newinvitation;
+
+	public void setIv(List<Invite> Iv){
+		this.iv=iv;
 	}
-	public String getNewinvitation(){
-		return this.newinvitation;
-	}
-	public void setIt(List<UserTopic> it){
-		this.it=it;
-	}
-	public List<UserTopic> getIt(){
-		return this.it;
-	}
-	
-	public void setHt(List<UserTopic> ht){
-		this.ht=ht;
-	}
-	public List<UserTopic> getHt(){
-		return this.ht;
-	}
-	
-	public void setMessage(String message){
-		this.message=message;
-	}
-	public String getMessage(){
-		return this.message;
+	public List<Invite> getIv(){
+		return this.iv;
 	}
 	
 	public void setUsername(String username){
@@ -88,31 +65,15 @@ public class Login implements Action{
 	public String execute() throws Exception {
 		Mysql sql=new Mysql();
 		System.out.println(password);
-		ht=new ArrayList<UserTopic>();
-		it=new ArrayList<UserTopic>();
-		if(sql.Login(username,password).equals("success")){
-			message="login success";
-			if(sql.HasInvitation(username).equals("yes")){
-				newinvitation="你收到了新的邀请";
-			}
-			else{
-				newinvitation="";
-			}
-			System.out.println(message);
-			sql.UserTopic(username,ht,it);
-			System.out.println("here");
-			return "login success";
-		}
-		else{
-			message="the username doesn't exist or the password is not correct";
-			return "login fail";
-		}
+		iv=new ArrayList<Invite>();
+		sql.InvitationList(iv,username);
+		return "success";
 	}
 }
 
-class UserTopic{
-	public String username=new String();
+class Invite{
+	public String invited=new String();
+	public String inviting=new String();
 	public String host=new String();
 	public String topic=new String();
-	public String flag=new String();
 }

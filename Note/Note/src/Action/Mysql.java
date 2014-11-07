@@ -71,6 +71,58 @@ public class Mysql {
 		}
 	}
 	
+	public String SentInvitation(String topic,String username,String invitename,String host) {
+		conn = getConnection();
+		try {
+			String sql = "select * from user where username='"+invitename+"'";
+			st = (Statement) conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			if (rs.next()) {
+			}
+			else{
+				return "the user doesn't exist";
+			}
+			if(topic.equals("")){
+				return "the topic is empty";
+			}
+			sql = "select * from userinfo where username='"+invitename+ "' and topic='"+topic+"' and host='"+host+"'";
+			st = (Statement) conn.createStatement();
+			rs = st.executeQuery(sql);
+			if (rs.next()) {
+				return "the user has been already invited in this topic";
+			}
+			sql = "insert into invitation(inviting,invited,topic,host) values('"+ username + "','" + invitename + "','"+topic+"','"+host+"')";
+			st = (Statement) conn.createStatement();
+			st.execute(sql);
+			conn.close();
+			return "success";
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return "fail";
+		}
+	}
+	
+	
+	public String HasInvitation(String username) {
+		conn = getConnection();
+		try {
+			String sql = "select * from invitation where invited='"+username+"'";
+			st = (Statement) conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			if (rs.next()) {
+				System.out.println("invitation");
+				return "yes";
+			}
+			else{
+				System.out.println("no invitation");
+				return "no";
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return "fail";
+		}
+	}
+	
 	public String InviteUser(String topic,String username,String invitename,String host) {
 		conn = getConnection();
 		try {
@@ -130,6 +182,30 @@ public class Mysql {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 			return "fail";
+		}
+	}
+	
+	public void InvitationList(List<Invite> iv,String username) {
+
+		conn = getConnection();
+		String result = new String();
+		try {
+			String sql = "select * from invitation where invited='"+username+"'";
+			st = (Statement) conn.createStatement();
+			System.out.println(sql);
+			ResultSet rs = st.executeQuery(sql);
+			Invite tmp;
+			while (rs.next()) { // 判断是否还有下一个数据
+				tmp = new Invite();
+				tmp.host= rs.getString("host");
+				tmp.topic=rs.getString("topic");
+				tmp.invited=rs.getString("invited");
+				tmp.inviting=rs.getString("inviting");
+				iv.add(tmp);
+			}
+			conn.close(); // 关闭数据库连接
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 	
