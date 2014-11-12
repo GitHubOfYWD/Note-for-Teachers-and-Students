@@ -11,8 +11,9 @@
          <result name="go to register">/Register1.jsp</result>
       </action>
       
-      <action name="showinvitation" class="Action.Invitation">
+      <action name="invitation_*" class="Action.Invitation" method="{1}">
          <result name="success">/ShowInvitation.jsp</result>
+         <result name="accept" type="redirect">invitation_show.action?username=${username}&amp;password=${password}</result>
       </action>
        
       <action name="register" class="Action.Register">

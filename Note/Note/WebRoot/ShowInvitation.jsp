@@ -43,7 +43,7 @@
                 	 <s:iterator value="iv" status="satt">
 						<tr>
 						<td><font size="3" color="red"><s:property value="inviting"/></font>邀请您到讨论组<font size="3" color="red"><s:property value="topic"/></font></td>
-						<td> <s:a href="" onclick="return confirm('接受邀请');">接受</s:a></td>
+						<td> <s:a href="invitation_accept.action?topic=%{topic}&inviting=%{inviting}&invited=%{username}&host=%{host}&username=%{username}&password=%{password}" onclick="return confirm('接受邀请');">接受</s:a></td>
 						</tr>
 					</s:iterator>
 					</s:form>

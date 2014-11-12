@@ -10,9 +10,37 @@ import com.opensymphony.xwork2.Action;
 public class Invitation implements Action{
 	public String username=new String();
 	public String password=new String();
+	public String topic=new String();
+	public String inviting=new String();
+	public String invited=new String();
+	public String host=new String();
 	public List<Invite> iv;
 	
 
+	public void setHost(String host){
+		this.host=host;
+	}
+	public String getHost(){
+		return this.host;
+	}
+	public void setTopix(String topic){
+		this.topic=topic;
+	}
+	public String getTopic(){
+		return this.topic;
+	}
+	public void setInvited(String invited){
+		this.invited=invited;
+	}
+	public String getInvited(){
+		return this.invited;
+	}
+	public void setInviting(String inviting){
+		this.inviting=inviting;
+	}
+	public String getInviting(){
+		return this.inviting;
+	}
 	public void setIv(List<Invite> Iv){
 		this.iv=iv;
 	}
@@ -63,11 +91,22 @@ public class Invitation implements Action{
 	}
 	
 	public String execute() throws Exception {
+		return null;
+	}
+	
+	
+	public String show() throws Exception {
 		Mysql sql=new Mysql();
 		System.out.println(password);
 		iv=new ArrayList<Invite>();
 		sql.InvitationList(iv,username);
 		return "success";
+	}
+	
+	public String accept() throws Exception{
+		Mysql sql=new Mysql();
+		sql.AcceptInvitation(topic,inviting,invited,host);
+		return "accept";
 	}
 }
 

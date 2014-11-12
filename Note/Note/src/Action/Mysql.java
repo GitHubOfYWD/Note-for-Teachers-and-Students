@@ -209,6 +209,25 @@ public class Mysql {
 		}
 	}
 	
+	public void AcceptInvitation(String topic,String inviting,String invited,String host) {
+
+		conn = getConnection();
+		String result = new String();
+		try {
+			String sql = "delete from invitation where invited='"+invited+"' and inviting='"+inviting+"' and topic='"+topic+"'";
+			System.out.println(sql);
+			st = (Statement) conn.createStatement();
+			st.execute(sql);
+			sql = "insert into userinfo(username,topic,host,flag) values('"+ invited + "','" + topic + "','"+host+"','0')";
+			st = (Statement) conn.createStatement();
+			st.execute(sql);
+			conn.close(); // 关闭数据库连接
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	
 	public void GetTopic(List<TopicMessage> tp,String topic,String username) {
 
 		conn = getConnection();

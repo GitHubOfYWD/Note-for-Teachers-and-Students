@@ -29,7 +29,7 @@
             	<div class="calendar_box_myhome">
 					<br>
                 	 <p><span><strong><font size="5" color="red"><s:property value="username"/></font></strong></span><br><br>
-                	 <s:a href="showinvitation.action?username=%{username}&password=%{password}"><font size="6" color="blue"><s:property value="newinvitation"/></s:a><br class="spacer" /><br/>
+                	 <s:a href="invitation_show.action?username=%{username}&password=%{password}"><font size="6" color="blue"><s:property value="newinvitation"/></s:a><br class="spacer" /><br/>
                 	 <s:a href="createtopic_Go.action?username=%{username}&password=%{password}&host=%{host}">创建讨论</s:a><br class="spacer" />
 					</p>					
                 </div>
