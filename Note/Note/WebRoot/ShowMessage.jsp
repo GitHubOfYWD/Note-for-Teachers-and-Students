@@ -35,9 +35,16 @@
 					<s:form>
 					<tr><td><s:a href="topic_GoPublish.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}&parentid=%{parentid}">增加新的结论</s:a><tr><td>
 					</s:form>
+					
+					
+					<!-- 
 					<s:form>
 					<a><strong><font size="2">邀请组员</font></strong></a> <br class="spacer" />
 					</s:form>
+					 -->
+					 
+					 
+					
 					<s:form action="topic_SentInvitation" theme="simple">
 					<s:textfield name="username" label="用户：" value="%{username}" style="display:none"/>
 					<s:textfield name="password"   value="%{password}" style="display:none"/>
@@ -45,12 +52,19 @@
 					<s:textfield name="host" value="%{host}" style="display:none"/>
 					<s:textfield name="author" value="%{author}" style="display:none"/>
 					<s:textfield name="parentid" value="%{parentid}" style="display:none"/>
+					
+					<!-- 
 					<s:textfield name="invitename" label="用户名" value=""/>
 					<s:submit style="width:100px" value="邀请"/>
+					-->
+					
 					</s:form>
 					<s:form>
-					<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
-					</s:form>				
+					<tr><td><strong><font size="3" color="red"><s:property value="author" />:</font><font color="black" size="3"><s:property value="parentmessage" /></font></strong></td></tr>
+					</s:form>
+					
+					
+								
                 </div>
 				
             </div><!--end of left content-->
@@ -64,7 +78,7 @@
 					<br>
 					<s:form>
     					<tr>
-    					  <td><font size="3" color="red"><strong>话题</strong></font></td>
+    					   <td><font size="3" color="red"><strong>话题</strong></font></td>
     					  <td><font size="3" color="red"><strong>发布人</strong></font></td>
     					  <td><font size="3" color="red"><strong>发布时间</strong></font></td>
     					  <td><font size="3" color="red"><strong>ID</strong></font></td>
@@ -79,8 +93,7 @@
                       	 <td><font size="3"><s:property value="parentid"/></font></td>
                       	
                     	 </tr>
-                     	  <s:textfield name="parentmessage" value="%{message}" style="display:none"/>
-                     	  <tr><td colspan="4"><font size="3" color="black">*概要：<s:property value="message"/></font></td></tr>
+                     	  <tr><td colspan="4"><font size="3" >*概要：<s:property value="message"/></font></td></tr>
     					  <tr><td><s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{author}&host=%{host}&parentid=%{id}&parentmessage=%{message}"><font color="red">相关讨论</font></s:a></td></tr>
                       	 <tr><td colspan="4">**********************************************************************************************</td></tr>
    					 </s:iterator>	

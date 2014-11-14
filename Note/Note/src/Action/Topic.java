@@ -19,8 +19,15 @@ public class Topic implements Action {
 	public String author=new String();
 	public int id;
 	public int parentid;
+	public String parentmessage=new String();
 	
 	
+	public void setParentmessage(String parentmessage){
+		this.parentmessage=parentmessage;
+	}
+	public String getParentmessage(){
+		return this.parentmessage;
+	}
 	public void setParentid(String parentid){
 		this.parentid=Integer.valueOf(parentid).intValue();
 	}
@@ -181,8 +188,11 @@ public class Topic implements Action {
 		Mysql sql=new Mysql();
 		sql.ShowMessage(tmm,topic,author,host,parentid);
 		System.out.println("show topic member message success");
-		if(author.equals(username)||parentid!=0){
+		if(author.equals(username)&&parentid==0){
 			return "show my topic message";
+		}
+		if(parentid>0){
+			return "show the relavant discussion";
 		}
 		else{
 			return "show others topic message";

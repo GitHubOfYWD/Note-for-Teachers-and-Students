@@ -34,11 +34,11 @@
 					<br>	
 					<s:form>
     					<tr>
-    					  <td><font size="3">话题</font></td>
-    					  <td><font size="3">发布人</font></td>
-    					  <td><font size="3">发布时间</font></td>
-    					  <td><font size="3">id</font></td>
-    					  <td><font size="3">parentid</font></td>
+    					   <td><font size="3" color="red"><strong>话题</strong></font></td>
+    					  <td><font size="3" color="red"><strong>发布人</strong></font></td>
+    					  <td><font size="3" color="red"><strong>发布时间</strong></font></td>
+    					  <td><font size="3" color="red"><strong>ID</strong></font></td>
+    					  <td><font size="3" color="red"><strong>ParentID</strong></font></td>
     					</tr>
                 	 <s:iterator value="tmm">
                     	 <tr>
@@ -49,7 +49,7 @@
                       	 <td><font size="3"><s:property value="parentid"/></font></td>
                     	 </tr>
                      	  <tr><td colspan="4"><font size="3">*概要：<s:property value="message"/></font></td></tr>
-                     	  <tr><td><s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{name}&host=%{host}&parentid=%{id}">相关讨论</s:a></td></tr>
+                     	  <tr><td><s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{author}&host=%{host}&parentid=%{id}&parentmessage=%{message}"><font color="red">相关讨论</font></s:a></td></tr>
                       	 <tr><td colspan="4">**********************************************************************************************</td></tr>
    					 </s:iterator>	
    					 </s:form>
