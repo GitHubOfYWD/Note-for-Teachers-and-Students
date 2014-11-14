@@ -61,6 +61,8 @@
 					</s:form>
 					<s:form>
 					<tr><td><strong><font size="3" color="red"><s:property value="author" />:</font><font color="black" size="3"><s:property value="parentmessage" /></font></strong></td></tr>
+					<tr><td><s:a href="topic_AddFavorite.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{author}&host=%{host}&parentid=%{parentid}&parentmessage=%{message}">收藏这个讨论</s:a><tr><td>
+					<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
 					</s:form>
 					
 					

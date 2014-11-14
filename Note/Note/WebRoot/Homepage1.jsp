@@ -43,7 +43,7 @@
                 	 <p><span>您所创建的讨论</span><br><br>
                 	 <s:iterator value="ht" status="satt">
                 	 	<!--<s:a href="topic_ShowHost.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><s:property value="topic"/>---<s:property value="host"/></s:a> <br class="spacer" />-->
-						<s:a href="topic_ShowMember.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><s:property value="topic"/>---<s:property value="host"/></s:a> <br class="spacer" />
+						<s:a href="topic_ShowMember.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><font color="red"><s:property value="topic"/>---<s:property value="host"/></font></s:a> <br class="spacer" />
 					</s:iterator>
 					<!-- 
                    		<a href="#" title="topic">讨论一:aaaaaa</a> <br class="spacer" />
@@ -64,7 +64,7 @@
 					<br>
                 	 <p><span>您被邀请的讨论</span><br><br>
                 	 <s:iterator value="it" status="satt">
-						<s:a href="topic_ShowMember.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><s:property value="topic"/>---<s:property value="host"/></s:a> <br class="spacer" />
+						<s:a href="topic_ShowMember.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><font color="red"><s:property value="topic"/>---<s:property value="host"/></font></s:a> <br class="spacer" />
 					</s:iterator>
 					<!-- 
                    		<a href="#" title="topic">讨论一:aaaaaa</a> <br class="spacer" />
@@ -72,6 +72,23 @@
 						<a href="#" title="topic">讨论三:cccccc</a> <br class="spacer" />
                         <a href="#" title="topic">讨论四:dddddd</a> <br class="spacer" /><br>
                      -->
+					</p>					
+                </div>
+				
+            </div><!--end of left content-->
+            
+            
+            
+             
+            <div class="left_content_myhome">
+            	<div class="calendar_box_myhome">
+					<br>
+                	 <p><span>您收藏的话题</span><br><br>
+                	 <!-- 
+                	 <s:iterator value="it" status="satt">
+						<s:a href="topic_ShowMember.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><font color="red"><s:property value="topic"/>---<s:property value="host"/></font></s:a> <br class="spacer" />
+					</s:iterator>
+					 -->
 					</p>
 					<form>
 	   					 <tr>

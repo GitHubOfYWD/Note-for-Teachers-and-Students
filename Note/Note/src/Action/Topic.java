@@ -198,6 +198,23 @@ public class Topic implements Action {
 			return "show others topic message";
 		}
 	}
+	public String AddFavorite(){
+		Mysql sql=new Mysql();
+		sql.AddFavorite(username,parentid);
+		message="Ìí¼Ó³É¹¦";
+		tmm=new ArrayList<TopicMemMessage>();
+		sql.ShowMessage(tmm,topic,author,host,parentid);
+		System.out.println("show topic member message success");
+		if(author.equals(username)&&parentid==0){
+			return "show my topic message";
+		}
+		if(parentid>0){
+			return "show the relavant discussion";
+		}
+		else{
+			return "show others topic message";
+		}
+	}
 	
 }
 

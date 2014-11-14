@@ -340,6 +340,19 @@ public class Mysql {
 		}
 	}
 	
+	public void AddFavorite(String username,int parentid){
+		conn = getConnection();
+		String result = new String();
+		try {
+			String sql = "insert into favorite(username,id) values('"+ username + "','"+parentid+"')";
+			st = (Statement) conn.createStatement();
+			st.execute(sql);
+			conn.close(); // 关闭数据库连接
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	
 	public static Connection getConnection() {
 		Connection con = null; 
