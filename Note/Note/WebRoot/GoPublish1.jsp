@@ -38,6 +38,7 @@
                 	<s:textfield name="password"   value="%{password}" style="display:none"/>
                 	<s:textfield name="host"   value="%{host}" style="display:none"/>
                 	<s:textfield name="author"   value="%{username}" style="display:none"/>
+                	<s:textfield name="parentid"   value="%{parentid}" style="display:none"/>
                 	<s:textarea rows="10" cols="50" name="pmessage" align="center" width="300" height="100"/>
                 	<s:submit style="width:100px" align="center" value="发布"/>
                 	</s:form>

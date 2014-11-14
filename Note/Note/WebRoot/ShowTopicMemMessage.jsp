@@ -36,11 +36,13 @@
     					<tr>
     					  <td><font size="3">话题</font></td>
     					  <td><font size="3">发布时间</font></td>
+    					  <td><font size="3">id</font></td>
     					</tr>
                 	 <s:iterator value="tmm">
                     	 <tr>
                       	 <td><font size="3"><s:property value="topic"/></font></td>
                       	 <td><font size="3"><s:property value="time"/></font></td>
+                      	 <td><font size="3"><s:property value="id"/></font></td>
                     	 </tr>
                      	  <tr><td colspan="4"><font size="3">*概要：<s:property value="message"/></font></td></tr>
                       	 <tr><td colspan="4">**********************************************************************************************</td></tr>

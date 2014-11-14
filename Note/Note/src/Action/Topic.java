@@ -17,8 +17,22 @@ public class Topic implements Action {
 	public List<Member>member;
 	public String invitename=new String();
 	public String author=new String();
+	public int id;
+	public int parentid;
 	
 	
+	public void setParentid(String parentid){
+		this.parentid=Integer.valueOf(parentid).intValue();
+	}
+	public int getParentid(){
+		return this.parentid;
+	}
+	public void setId(String id){
+		this.id=Integer.valueOf(id).intValue();
+	}
+	public int getId(){
+		return this.id;
+	}
 	public void setAuthor(String author){
 		this.author=author;
 	}
@@ -116,7 +130,7 @@ public class Topic implements Action {
 	
 	public String Publish(){
 		Mysql sql=new Mysql();
-		if(sql.PublishMessage(host,topic,pmessage,author).equals("success")){
+		if(sql.PublishMessage(host,topic,pmessage,author,parentid).equals("success")){
 			message="发布成功";
 		}
 		else{
@@ -144,7 +158,7 @@ public class Topic implements Action {
 			message=tmp;
 		}
 		tmm=new ArrayList<TopicMemMessage>();
-		sql.ShowMessage(tmm,topic,author,host);
+		sql.ShowMessage(tmm,topic,author,host,parentid);
 		return "sent invitation";
 	}
 	
@@ -157,7 +171,7 @@ public class Topic implements Action {
 			message="The user has been already invited or no such user";
 		}
 		tmm=new ArrayList<TopicMemMessage>();
-		sql.ShowMessage(tmm,topic,author,host);
+		sql.ShowMessage(tmm,topic,author,host,parentid);
 		return "invite";
 	}
 	
@@ -165,9 +179,9 @@ public class Topic implements Action {
 	public String ShowMessage(){
 		tmm=new ArrayList<TopicMemMessage>();
 		Mysql sql=new Mysql();
-		sql.ShowMessage(tmm,topic,author,host);
+		sql.ShowMessage(tmm,topic,author,host,parentid);
 		System.out.println("show topic member message success");
-		if(author.equals(username)){
+		if(author.equals(username)||parentid!=0){
 			return "show my topic message";
 		}
 		else{
@@ -194,4 +208,6 @@ class TopicMemMessage{
 	public String author=new String();
 	public String time=new String();
 	public String message=new String();
+	public int id;
+	public int parentid;
 }

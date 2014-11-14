@@ -168,13 +168,13 @@ public class Mysql {
 		}
 	}
 	
-	public String PublishMessage(String username,String topic,String message,String author) {
+	public String PublishMessage(String username,String topic,String message,String author,int parentid) {
 		conn = getConnection();
 		try {
 			 Date date = new Date();
              String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
              String now = String.valueOf(nowTime);
-			String sql = "insert into board(host,topic,message,time,author) values('"+ username + "','" + topic + "','"+message+"','"+now+"','"+author+"')";
+			String sql = "insert into board(host,topic,message,time,author,parentid) values('"+ username + "','" + topic + "','"+message+"','"+now+"','"+author+"','"+parentid+"')";
 			st = (Statement) conn.createStatement();
 			st.execute(sql);
 			conn.close();
@@ -253,12 +253,18 @@ public class Mysql {
 		}
 	}
 	
-	public void ShowMessage(List<TopicMemMessage> tmm,String topic,String author,String host) {
+	public void ShowMessage(List<TopicMemMessage> tmm,String topic,String author,String host,int parentid) {
 
 		conn = getConnection();
 		String result = new String();
+		String sql=new String();
 		try {
-			String sql = "select * from board where author='"+author+"' and topic='"+topic+"'and host='"+host+"'";
+			if(parentid!=0){
+				sql = "select * from board where parentid='"+parentid+"' and topic='"+topic+"'and host='"+host+"'";
+			}
+			else{
+				sql = "select * from board where author='"+author+"' and topic='"+topic+"'and host='"+host+"'and parentid=\'0\'";
+			}
 			st = (Statement) conn.createStatement();
 			System.out.println(sql);
 			ResultSet rs = st.executeQuery(sql);
@@ -270,6 +276,8 @@ public class Mysql {
 				tmp.topic=rs.getString("topic");
 				tmp.time=rs.getString("time");
 				tmp.message=rs.getString("message");
+				tmp.id=rs.getInt("id");
+				tmp.parentid=rs.getInt("parentid");
 				System.out.println(tmp.message);
 				tmm.add(tmp);
 			}

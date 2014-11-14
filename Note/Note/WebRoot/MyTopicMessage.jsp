@@ -30,10 +30,10 @@
 					<br>
                 	 <s:form>
 						<tr><td><strong><font size="5"><s:property value="topic" /></font></strong></td></tr>
-						<tr><td><strong><font size="5"><s:property value="username" />的观点</font></strong></td></tr>
+						<!-- <tr><td><strong><font size="5"><s:property value="username" />的观点</font></strong></td></tr> -->
 					</s:form>
 					<s:form>
-					<tr><td><s:a href="topic_GoPublish.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}">增加新的结论</s:a><tr><td>
+					<tr><td><s:a href="topic_GoPublish.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}&parentid=%{parentid}">增加新的结论</s:a><tr><td>
 					</s:form>
 					<s:form>
 					<a><strong><font size="2">邀请组员</font></strong></a> <br class="spacer" />
@@ -44,6 +44,7 @@
 					<s:textfield name="topic" label="话题：" value="%{topic}" style="display:none"/>
 					<s:textfield name="host" value="%{host}" style="display:none"/>
 					<s:textfield name="author" value="%{author}" style="display:none"/>
+					<s:textfield name="parentid" value="%{parentid}" style="display:none"/>
 					<s:textfield name="invitename" label="用户名" value=""/>
 					<s:submit style="width:100px" value="邀请"/>
 					</s:form>
@@ -64,16 +65,22 @@
 					<s:form>
     					<tr>
     					  <td><font size="3">话题</font></td>
-    					  <td><font size="3">创建人</font></td>
+    					  <td><font size="3">发布人</font></td>
     					  <td><font size="3">发布时间</font></td>
+    					  <td><font size="3">id</font></td>
+    					  <td><font size="3">parentid</font></td>
     					</tr>
                 	 <s:iterator value="tmm">
                     	 <tr>
                       	 <td><font size="3"><s:property value="topic"/></font></td>
-                     	  <td><font size="3"><s:property value="host"/></font></td>
+                     	  <td><font size="3"><s:property value="author"/></font></td>
                       	 <td><font size="3"><s:property value="time"/></font></td>
+                      	 <td><font size="3"><s:property value="id"/></font></td>
+                      	 <td><font size="3"><s:property value="parentid"/></font></td>
+                      	
                     	 </tr>
                      	  <tr><td colspan="4"><font size="3">*概要：<s:property value="message"/></font></td></tr>
+    					  <tr><td><s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{name}&host=%{host}&parentid=%{id}">相关讨论</s:a></td></tr>
                       	 <tr><td colspan="4">**********************************************************************************************</td></tr>
    					 </s:iterator>	
    					 </s:form>

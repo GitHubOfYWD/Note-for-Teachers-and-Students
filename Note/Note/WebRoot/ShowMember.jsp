@@ -31,7 +31,7 @@
 					<br>
                 	 <p><span>成员</span><br><br>
                 	 <s:iterator value="member" status="satt">
-						<s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{name}&host=%{host}"><s:property value="name"/></s:a> <br class="spacer" />
+						<s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{name}&host=%{host}&parentid=0"><s:property value="name"/></s:a> <br class="spacer" />
 					</s:iterator>
 					</p>					
                 </div>
