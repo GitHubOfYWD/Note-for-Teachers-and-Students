@@ -84,11 +84,9 @@
             	<div class="calendar_box_myhome">
 					<br>
                 	 <p><span>您收藏的话题</span><br><br>
-                	 <!-- 
-                	 <s:iterator value="it" status="satt">
-						<s:a href="topic_ShowMember.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}"><font color="red"><s:property value="topic"/>---<s:property value="host"/></font></s:a> <br class="spacer" />
+                	 <s:iterator value="fm" status="satt">
+						<s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{author}&host=%{host}&parentid=%{id}&parentmessage=%{message}"><font color="red"><s:property value="author"/>:</font><font color="black"><s:property value="message"/></font></s:a> <br class="spacer" />
 					</s:iterator>
-					 -->
 					</p>
 					<form>
 	   					 <tr>

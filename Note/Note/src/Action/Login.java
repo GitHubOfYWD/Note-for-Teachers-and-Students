@@ -12,10 +12,17 @@ public class Login implements Action{
 	public String password=new String();
 	public String message=new String();
 	public String newinvitation=new String();
+	public List<FavoriteMessage>fm;
 	public List<UserTopic> ht;
 	public List<UserTopic> it;
 	
 	
+	public void setFm(List<FavoriteMessage> fm){
+		this.fm=fm;
+	}
+	public List<FavoriteMessage> getFm(){
+		return this.fm;
+	}
 	public void setNewinvitation(String newinvitation){
 		this.newinvitation=newinvitation;
 	}
@@ -101,6 +108,8 @@ public class Login implements Action{
 			System.out.println(message);
 			sql.UserTopic(username,ht,it);
 			System.out.println("here");
+			fm=new ArrayList<FavoriteMessage>();
+			sql.ShowFavorite(username,fm);
 			return "login success";
 		}
 		else{
@@ -115,4 +124,14 @@ class UserTopic{
 	public String host=new String();
 	public String topic=new String();
 	public String flag=new String();
+}
+class FavoriteMessage{
+	public String username=new String();
+	public int id;
+	public int parentid;
+	public String author=new String();
+	public String host=new String();
+	public String topic=new String();
+	public String message=new String();
+	public String time=new String();
 }

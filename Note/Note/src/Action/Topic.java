@@ -15,11 +15,13 @@ public class Topic implements Action {
 	public List<TopicMessage> tpm;
 	public List<TopicMemMessage> tmm;
 	public List<Member>member;
+	
 	public String invitename=new String();
 	public String author=new String();
 	public int id;
 	public int parentid;
 	public String parentmessage=new String();
+	
 	
 	
 	public void setParentmessage(String parentmessage){
@@ -215,6 +217,12 @@ public class Topic implements Action {
 			return "show others topic message";
 		}
 	}
+	/*public String ShowFavorite(){
+		Mysql sql=new Mysql();
+		fm=new ArrayList<FavoriteMessage>();
+		sql.ShowFavorite(username,fm);
+		return "show favorite";
+	}*/
 	
 }
 
