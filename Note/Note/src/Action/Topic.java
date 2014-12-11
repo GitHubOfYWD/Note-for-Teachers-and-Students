@@ -15,6 +15,8 @@ public class Topic implements Action {
 	public List<TopicMessage> tpm;
 	public List<TopicMemMessage> tmm;
 	public List<Member>member;
+	public List<Time>time;
+	public String date;
 	
 	public String invitename=new String();
 	public String author=new String();
@@ -24,6 +26,18 @@ public class Topic implements Action {
 	
 	
 	
+	public void setDate(String date){
+		this.date=date;
+	}
+	public String getDate(){
+		return this.date;
+	}
+	public void setTime(List<Time> time){
+		this.time=time;
+	}
+	public List<Time> getTime(){
+		return this.time;
+	}
 	public void setParentmessage(String parentmessage){
 		this.parentmessage=parentmessage;
 	}
@@ -148,6 +162,13 @@ public class Topic implements Action {
 		return "publish";
 	}
 	
+	public String ShowTime(){
+		Mysql sql=new Mysql();
+		time=new ArrayList<Time>();
+		sql.ShowTime(host,topic,time);
+		return "show time";
+	}
+	
 	public String ShowMember(){
 		Mysql sql=new Mysql();
 		member=new ArrayList<Member>();
@@ -182,6 +203,15 @@ public class Topic implements Action {
 		tmm=new ArrayList<TopicMemMessage>();
 		sql.ShowMessage(tmm,topic,author,host,parentid);
 		return "invite";
+	}
+	
+	
+	public String ShowMessageOfTime(){
+		tmm=new ArrayList<TopicMemMessage>();
+		Mysql sql=new Mysql();
+		sql.ShowMessageOfTime(tmm,topic,author,host,parentid,date);
+		System.out.println("show topic member message success");
+		return "show my topic message";
 	}
 	
 	
@@ -229,6 +259,9 @@ public class Topic implements Action {
 
 class Member{
 	public String name=new String();
+}
+class Time{
+	public String t=new String();
 }
 
 class TopicMessage{

@@ -4,6 +4,10 @@
     "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<package name="default" extends="struts-default" namespace="">
+	
+	 <action name="show">
+         <result>/Login1.jsp</result>
+      </action>
       
       <action name="login" class="Action.Login">
          <result name="login success">/Homepage1.jsp</result>
@@ -34,7 +38,8 @@
          <result name="go publish">/GoPublish1.jsp</result>
          <result name="publish">/GoPublish1.jsp</result>
          <result name="show member">/ShowMember.jsp</result>
-         <result name="show my topic message">/MyTopicMessage.jsp</result>
+         <result name="show time">/ShowTime.jsp</result>
+         <result name="show my topic message">/ShowMessageNew.jsp</result>
          <result name="show others topic message">/OthersTopicMessage.jsp</result>
          <result name="show the relavant discussion">/ShowMessage.jsp</result>
          
