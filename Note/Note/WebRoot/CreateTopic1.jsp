@@ -33,6 +33,7 @@
 </s:form>
 <s:form action="createtopic_Set" theme="simple">
 <s:textfield name="username" label="用户" value="%{username}" style="display:none"/>
+<s:textfield name="host" label="用户" value="%{username}" style="display:none"/>
 <s:textfield name="password"   value="%{password}" style="display:none"/>
 <s:textfield name="topic" label="话题：" value="%{topic}"/>
 <s:submit style="width:100px" value="创建"/>

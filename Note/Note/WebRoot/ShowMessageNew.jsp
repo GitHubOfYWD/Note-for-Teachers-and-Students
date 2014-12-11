@@ -65,7 +65,7 @@
 					<s:form>
                 	 <s:iterator value="tmm">
                      	  <s:textfield name="parentmessage" value="%{message}" style="display:none"/>
-                     	  <tr><td colspan="4"><font size="5" color="red"><s:property value="author"/>:</font><font size="3" color="black"><s:property value="message"/></font></td></tr>
+                     	  <tr><td colspan="4"><font size="5" color="red"><s:property value="author"/>&nbsp &nbsp</font><font size="3" color="black"><s:property value="message"/></font></td></tr>
                       	 <tr><td colspan="4">**********************************************************************************************</td></tr>
    					 </s:iterator>	
    					 </s:form>

@@ -62,7 +62,7 @@
            
             
             
-             
+         <!-- 
             <div class="left_content_myhome">
             	<div class="calendar_box_myhome">
 					<br>
@@ -78,7 +78,7 @@
    					 </form>						
                 </div>
 				
-            </div><!--end of left content-->
+            </div><!--end of left content--> 
 			
 			
 			

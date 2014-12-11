@@ -210,6 +210,10 @@ public class Topic implements Action {
 		tmm=new ArrayList<TopicMemMessage>();
 		Mysql sql=new Mysql();
 		sql.ShowMessageOfTime(tmm,topic,author,host,parentid,date);
+		System.out.print("show here");
+		for(int i=0;i<tmm.size();i++){
+			System.out.print(tmm.get(i).message);
+		}
 		System.out.println("show topic member message success");
 		return "show my topic message";
 	}

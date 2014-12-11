@@ -209,7 +209,7 @@ public class Mysql {
 			return "success";
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
-			return "fail";
+			return e.getMessage();
 		}
 	}
 
@@ -334,9 +334,8 @@ public class Mysql {
 						+ date
 						+ "' and topic='"
 						+ topic
-						+ "'and host='" 
-						+ host
-						+ "'and parentid=\'0\'";
+						+ "'and parentid="
+						+0;
 			st = (Statement) conn.createStatement();
 			System.out.println(sql);
 			ResultSet rs = st.executeQuery(sql);
@@ -487,7 +486,7 @@ public class Mysql {
 		}
 	}
 
-	public static Connection getConnection() {
+	public static Connection getConnectiona() {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -499,7 +498,7 @@ public class Mysql {
 		}
 		return con;
 	}
-	public static Connection getConnectiona() {
+	public static Connection getConnection() {
 		Connection con = null; // 创建用于连接数据库的Connection对象
 		try {
 			Class.forName("com.mysql.jdbc.Driver");// 加载Mysql数据驱动

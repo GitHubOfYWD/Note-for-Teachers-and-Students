@@ -75,12 +75,14 @@ public class CreateTopic implements Action {
 		Mysql sql=new Mysql();
 		if(sql.CreateTopic(topic,username).equals("success")){
 			topicmessage="The topic is created successfully";
+			sql.PublishMessage(username,topic,"This is created by me",username,0);
 			return "create success";
 		}
 		else{
 			topicmessage="The topic has already existed";
 			return "create fail";
 		}
+		
 	}
 	
 	public String Go(){
