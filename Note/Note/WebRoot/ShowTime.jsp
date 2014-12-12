@@ -28,12 +28,35 @@
 			
 			<div class="left_content_myhome">
             	<div class="calendar_box_myhome">
+            	
+            		<s:form>
+					<a><strong><font size="2">邀请组员</font></strong></a> <br class="spacer" />
+					</s:form>
+					<s:form action="topic_SentInvitation" theme="simple">
+					<s:textfield name="username" label="用户：" value="%{username}" style="display:none"/>
+					<s:textfield name="password"   value="%{password}" style="display:none"/>
+					<s:textfield name="topic" label="话题：" value="%{topic}" style="display:none"/>
+					<s:textfield name="host" value="%{host}" style="display:none"/>
+					<s:textfield name="author" value="%{author}" style="display:none"/>
+					<s:textfield name="parentid" value="%{parentid}" style="display:none"/>
+					<s:textfield name="invitename" label="用户名" value=""/>
+					<s:submit style="width:100px" value="邀请"/>
+					</s:form>
+					<s:form>
+					<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
+					</s:form>
+            	
+            	
 					<br>
-                	 <p><span>时间</span><br><br>
+					<s:a href="topic_ShowAllMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{name}&host=%{host}&parentid=0&date=%{t}">所有观点</s:a> <br class="spacer" />
+                	 <p><span><font size="4" color="red">时间列表</font></span><br>
                 	 <s:iterator value="time" status="satt">
 						<s:a href="topic_ShowMessageOfTime.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{name}&host=%{host}&parentid=0&date=%{t}"><s:property value="t"/></s:a> <br class="spacer" />
 					</s:iterator>
-					</p>					
+					</p>
+					<br/>
+					<br/>
+					<a href="javascript:history.go(-1)" target=_self>返回</a>					
                 </div>
 				
             </div><!--end of left content-->

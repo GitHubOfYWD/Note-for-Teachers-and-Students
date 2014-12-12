@@ -323,6 +323,39 @@ public class Mysql {
 		}
 	}
 	
+	public void ShowAllMessage(List<TopicMemMessage> tmm, String topic,
+			String author, String host, int parentid) {
+
+		conn = getConnection();
+		String result = new String();
+		String sql = new String();
+		try {
+				sql = "select * from board where topic='"
+						+ topic
+						+ "'and parentid="
+						+0;
+			st = (Statement) conn.createStatement();
+			System.out.println(sql);
+			ResultSet rs = st.executeQuery(sql);
+			TopicMemMessage tmp;
+			while (rs.next()) { // 判断是否还有下一个数据
+				tmp = new TopicMemMessage();
+				tmp.host = rs.getString("host");
+				tmp.author = rs.getString("author");
+				tmp.topic = rs.getString("topic");
+				tmp.time = rs.getString("time");
+				tmp.message = rs.getString("message");
+				tmp.id = rs.getInt("id");
+				tmp.parentid = rs.getInt("parentid");
+				System.out.println(tmp.message);
+				tmm.add(tmp);
+			}
+			conn.close(); // 关闭数据库连接
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
 	public void ShowMessageOfTime(List<TopicMemMessage> tmm, String topic,
 			String author, String host, int parentid,String date) {
 
@@ -486,7 +519,7 @@ public class Mysql {
 		}
 	}
 
-	public static Connection getConnectiona() {
+	public static Connection getConnection() {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -498,7 +531,7 @@ public class Mysql {
 		}
 		return con;
 	}
-	public static Connection getConnection() {
+	public static Connection getConnectiona() {
 		Connection con = null; // 创建用于连接数据库的Connection对象
 		try {
 			Class.forName("com.mysql.jdbc.Driver");// 加载Mysql数据驱动

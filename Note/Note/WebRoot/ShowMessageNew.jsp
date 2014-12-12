@@ -25,6 +25,7 @@
             <div id="menu_tab"></div> 
 			
 			
+			 
 			 <div class="left_content_myhome">
             	<div class="calendar_box_myhome">
 					<br>
@@ -32,6 +33,7 @@
 						<tr><td><strong><font size="5"><s:property value="topic" /></font></strong></td></tr>
 						<!-- <tr><td><strong><font size="5"><s:property value="username" />的观点</font></strong></td></tr> -->
 					</s:form>
+					<!--
 					<s:form>
 					<tr><td><s:a href="topic_GoPublish.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}&parentid=%{parentid}">增加新的结论</s:a><tr><td>
 					</s:form>
@@ -50,7 +52,8 @@
 					</s:form>
 					<s:form>
 					<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
-					</s:form>				
+					</s:form>	
+					  -->			
                 </div>
 				
             </div><!--end of left content-->
@@ -72,7 +75,9 @@
    					 <form>
 	   					 <tr>
       					    <td><s:a href="login.action?username=%{username}&password=%{password}">主页</s:a></td>
-     					   </tr>
+      					    <td><a href="javascript:history.go(-1)" target=_self>返回</a></td>
+     					  </tr>
+							
    					 </form>		
                 </div>
 				

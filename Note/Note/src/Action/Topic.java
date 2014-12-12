@@ -218,6 +218,18 @@ public class Topic implements Action {
 		return "show my topic message";
 	}
 	
+	public String ShowAllMessage(){
+		tmm=new ArrayList<TopicMemMessage>();
+		Mysql sql=new Mysql();
+		sql.ShowAllMessage(tmm,topic,author,host,parentid);
+		System.out.print("show here");
+		for(int i=0;i<tmm.size();i++){
+			System.out.print(tmm.get(i).message);
+		}
+		System.out.println("show all message in a topic");
+		return "show all message in a topic";
+	}
+	
 	
 	public String ShowMessage(){
 		tmm=new ArrayList<TopicMemMessage>();

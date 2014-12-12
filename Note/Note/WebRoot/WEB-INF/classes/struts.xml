@@ -33,13 +33,14 @@
       
       <action name="topic_*" class="Action.Topic" method="{1}">
          <result name="show host topic success">/HostTopic1.jsp</result>
-         <result name="sent invitation">/MyTopicMessage.jsp</result>
+         <result name="sent invitation" type="redirect">topic_ShowTime.action?username=${username}&amp;password=${password}&amp;topic=${topic}&amp;host=${host}&amp;message=${message}</result>
          <result name="show invited topic success">/InvitedTopic1.jsp</result>
          <result name="go publish">/GoPublish1.jsp</result>
          <result name="publish">/GoPublish1.jsp</result>
          <result name="show member">/ShowMember.jsp</result>
          <result name="show time">/ShowTime.jsp</result>
          <result name="show my topic message">/ShowMessageNew.jsp</result>
+         <result name="show all message in a topic">/ShowMessageNew.jsp</result>
          <result name="show others topic message">/OthersTopicMessage.jsp</result>
          <result name="show the relavant discussion">/ShowMessage.jsp</result>
          

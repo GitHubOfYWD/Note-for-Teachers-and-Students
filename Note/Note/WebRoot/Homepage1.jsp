@@ -28,8 +28,8 @@
 			 <div class="left_content_myhome">
             	<div class="calendar_box_myhome">
 					<br>
-                	 <p><span><strong><font size="5" color="red"><s:property value="username"/></font></strong></span><br><br>
-                	 <s:a href="invitation_show.action?username=%{username}&password=%{password}"><font size="6" color="blue"><s:property value="newinvitation"/></s:a><br class="spacer" /><br/>
+                	 <p><span><strong><font size="5" color="red"><s:property value="username"/></font></strong></span><br>
+                	 <s:a href="invitation_show.action?username=%{username}&password=%{password}"><font size="3" color="blue"><s:property value="newinvitation"/></s:a><br class="spacer" /><br/>
                 	 <s:a href="createtopic_Go.action?username=%{username}&password=%{password}&host=%{host}">创建讨论</s:a><br class="spacer" />
 					</p>					
                 </div>
@@ -51,7 +51,12 @@
 						<a href="#" title="topic">讨论三:cccccc</a> <br class="spacer" />
                         <a href="#" title="topic">讨论四:dddddd</a> <br class="spacer" /><br>
                      -->
-					</p>					
+					</p>
+					<form>
+	   					 <tr>
+      					    <td><s:a href="Login1.jsp">登出</s:a></td>
+     					   </tr>
+   					 </form>						
                 </div>
 				
             </div><!--end of left content-->
