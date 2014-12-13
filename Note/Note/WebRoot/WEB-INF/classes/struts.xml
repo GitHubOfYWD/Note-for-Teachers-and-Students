@@ -42,7 +42,8 @@
          <result name="publish">/GoPublish1.jsp</result>
          <result name="show member">/ShowMember.jsp</result>
          <result name="show time">/ShowTime.jsp</result>
-         <result name="show my topic message">/ShowMessageNew.jsp</result>
+         <result name="publish conclusion">/ShowMessage.jsp</result>
+         <result name="show message of time">/ShowMessage.jsp</result>
          <result name="show all message in a topic">/ShowMessageNew.jsp</result>
          <result name="show others topic message">/OthersTopicMessage.jsp</result>
          <result name="show the relavant discussion">/ShowMessage.jsp</result>

@@ -357,7 +357,7 @@ public class Mysql {
 	}
 	
 	public void ShowMessageOfTime(List<TopicMemMessage> tmm, String topic,
-			String author, String host, int parentid,String date) {
+			String author, String host, int parentid,String date,conclusion con) {
 
 		conn = getConnection();
 		String result = new String();
@@ -385,7 +385,46 @@ public class Mysql {
 				System.out.println(tmp.message);
 				tmm.add(tmp);
 			}
+			sql = "select * from conclusion where date='" 
+					+ date
+					+ "' and topic='"
+					+ topic
+					+"'";
+		st = (Statement) conn.createStatement();
+		System.out.println(sql);
+		rs = st.executeQuery(sql);
+		System.out.println(sql);
+		while (rs.next()) { // 判断是否还有下一个数据
+			con.m = rs.getString("message");
+		}
+		System.out.print("shit here"+con.m);
 			conn.close(); // 关闭数据库连接
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public void PublishConclusion(String conclusion,String topic,String date){
+		conn = getConnection();
+		try {
+			String sql="delete from conclusion where topic="
+					+"'"
+					+topic
+					+"' and date='"
+					+date
+					+"'";
+			st = (Statement) conn.createStatement();
+			st.execute(sql);
+			sql = "insert into conclusion(message,topic,date) values('"
+					+ conclusion
+					+ "','"
+					+ topic
+					+ "','"
+					+ date
+					+ "')";
+			st = (Statement) conn.createStatement();
+			st.execute(sql);
+			conn.close();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -571,7 +610,7 @@ public class Mysql {
 		}
 	}
 
-	public static Connection getConnection() {
+	public static Connection getConnectiona() {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -583,7 +622,7 @@ public class Mysql {
 		}
 		return con;
 	}
-	public static Connection getConnectiona() {
+	public static Connection getConnection() {
 		Connection con = null; // 创建用于连接数据库的Connection对象
 		try {
 			Class.forName("com.mysql.jdbc.Driver");// 加载Mysql数据驱动

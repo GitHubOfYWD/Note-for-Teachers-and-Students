@@ -25,48 +25,17 @@
             <div id="menu_tab"></div> 
 			
 			
+			 
 			 <div class="left_content_myhome">
             	<div class="calendar_box_myhome">
 					<br>
                 	 <s:form>
 						<tr><td><strong><font size="5"><s:property value="topic" /></font></strong></td></tr>
-						<!-- <tr><td><strong><font size="5"><s:property value="username" />的观点</font></strong></td></tr> -->
 					</s:form>
+					
 					<s:form>
 					<tr><td><s:a href="topic_GoPublish.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}&parentid=%{parentid}">增加新的结论</s:a><tr><td>
-					</s:form>
-					
-					
-					<!-- 
-					<s:form>
-					<a><strong><font size="2">邀请组员</font></strong></a> <br class="spacer" />
-					</s:form>
-					 -->
-					 
-					 
-					
-					<s:form action="topic_SentInvitation" theme="simple">
-					<s:textfield name="username" label="用户：" value="%{username}" style="display:none"/>
-					<s:textfield name="password"   value="%{password}" style="display:none"/>
-					<s:textfield name="topic" label="话题：" value="%{topic}" style="display:none"/>
-					<s:textfield name="host" value="%{host}" style="display:none"/>
-					<s:textfield name="author" value="%{author}" style="display:none"/>
-					<s:textfield name="parentid" value="%{parentid}" style="display:none"/>
-					
-					<!-- 
-					<s:textfield name="invitename" label="用户名" value=""/>
-					<s:submit style="width:100px" value="邀请"/>
-					-->
-					
-					</s:form>
-					<s:form>
-					<tr><td><strong><font size="3" color="red"><s:property value="author" />:</font><font color="black" size="3"><s:property value="parentmessage" /></font></strong></td></tr>
-					<tr><td><s:a href="topic_AddFavorite.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{author}&host=%{host}&parentid=%{parentid}&parentmessage=%{message}">收藏这个讨论</s:a><tr><td>
-					<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
-					</s:form>
-					
-					
-								
+					</s:form>		
                 </div>
 				
             </div><!--end of left content-->
@@ -79,36 +48,50 @@
             	<div class="calendar_box_myhome">
 					<br>
 					<s:form>
-    					<tr>
-    					   <td><font size="3" color="red"><strong>话题</strong></font></td>
-    					  <td><font size="3" color="red"><strong>发布人</strong></font></td>
-    					  <td><font size="3" color="red"><strong>发布时间</strong></font></td>
-    					  <td><font size="3" color="red"><strong>ID</strong></font></td>
-    					  <td><font size="3" color="red"><strong>ParentID</strong></font></td>
-    					</tr>
                 	 <s:iterator value="tmm">
-                    	 <tr>
-                      	 <td><font size="3"><s:property value="topic"/></font></td>
-                     	  <td><font size="3"><s:property value="author"/></font></td>
-                      	 <td><font size="3"><s:property value="time"/></font></td>
-                      	 <td><font size="3"><s:property value="id"/></font></td>
-                      	 <td><font size="3"><s:property value="parentid"/></font></td>
-                      	
-                    	 </tr>
-                     	  <tr><td colspan="4"><font size="3" >*概要：<s:property value="message"/></font></td></tr>
-    					  <tr><td><s:a href="topic_ShowMessage.action?username=%{username}&password=%{password}&topic=%{topic}&author=%{author}&host=%{host}&parentid=%{id}&parentmessage=%{message}"><font color="red">相关讨论</font></s:a></td></tr>
+                     	  <s:textfield name="parentmessage" value="%{message}" style="display:none"/>
+                     	  <tr><td colspan="4"><font size="5" color="red"><s:property value="author"/>&nbsp &nbsp</font><font size="3" color="black"><s:property value="message"/></font></td></tr>
                       	 <tr><td colspan="4">**********************************************************************************************</td></tr>
    					 </s:iterator>	
-   					 </s:form>
-   					 <form>
-	   					 <tr>
-      					    <td><s:a href="login.action?username=%{username}&password=%{password}">主页</s:a></td>
-     					   </tr>
-   					 </form>		
+   					 </s:form>	
                 </div>
 				
             </div><!--end of left content-->
+          	
 			
+			
+			<div class="left_content_myhome">
+            	<div class="calendar_box_myhome">
+					<br>
+					<s:form align="center">
+                	<tr><td><strong><font size="5">今天的总结</font></strong></td></tr>
+                	</s:form>
+
+                	<s:form action="topic_Conclusion" align="center">
+                	<s:textfield name="username" value="%{username}" style="display:none"/>
+                	<s:textfield name="topic"   value="%{topic}" style="display:none"/>
+                	<s:textfield name="password"   value="%{password}" style="display:none"/>
+                	<s:textfield name="host"   value="%{host}" style="display:none"/>
+                	<s:textfield name="author"   value="%{username}" style="display:none"/>
+                	<s:textfield name="parentid"   value="%{parentid}" style="display:none"/>
+                	<s:textfield name="date"   value="%{date}" style="display:none"/>
+                	<s:textarea rows="10" cols="50" name="conclusion" value="%{conclusion}" align="center" width="300" height="100"/>
+                	<s:submit style="width:100px" align="center" value="发布"/>
+                	</s:form>
+
+                	<s:form align="center">
+                	<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
+                	</s:form>
+   					 <form>
+	   					 <tr>
+      					    <td><s:a href="login.action?username=%{username}&password=%{password}">主页</s:a></td>
+      					    <td><a href="javascript:history.go(-1)" target=_self>返回</a></td>
+     					  </tr>
+							
+   					 </form>					
+                </div>
+				
+            </div><!--end of left content--> 
 			
 			
 			

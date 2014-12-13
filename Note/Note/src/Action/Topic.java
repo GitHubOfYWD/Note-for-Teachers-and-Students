@@ -18,6 +18,8 @@ public class Topic implements Action {
 	public List<Time>time;
 	public String date;
 	public List<UserTopic> ht;
+	public conclusion con;
+	public String conclusion;
 	
 	public String invitename=new String();
 	public String author=new String();
@@ -27,6 +29,12 @@ public class Topic implements Action {
 	
 	
 	
+	public void setConclusion(String conclusion){
+		this.conclusion=conclusion;
+	}
+	public String getConclusion(){
+		return this.conclusion;
+	}
 	public void setHt(List<UserTopic> ht){
 		this.ht=ht;
 	}
@@ -248,14 +256,16 @@ public class Topic implements Action {
 	
 	public String ShowMessageOfTime(){
 		tmm=new ArrayList<TopicMemMessage>();
+		conclusion=new String();
 		Mysql sql=new Mysql();
-		sql.ShowMessageOfTime(tmm,topic,author,host,parentid,date);
-		System.out.print("show here");
+		con=new conclusion();
+		sql.ShowMessageOfTime(tmm,topic,author,host,parentid,date,con);
 		for(int i=0;i<tmm.size();i++){
 			System.out.print(tmm.get(i).message);
 		}
+		conclusion=con.m;
 		System.out.println("show topic member message success");
-		return "show my topic message";
+		return "show message of time";
 	}
 	
 	public String ShowAllMessage(){
@@ -286,6 +296,19 @@ public class Topic implements Action {
 			return "show others topic message";
 		}
 	}
+	
+	public String Conclusion(){
+		Mysql sql=new Mysql();
+		sql.PublishConclusion(conclusion,topic,date);
+		System.out.println("show topic member message success");
+		message="发布成功";
+		tmm=new ArrayList<TopicMemMessage>();
+		sql=new Mysql();
+		con=new conclusion();
+		sql.ShowMessageOfTime(tmm,topic,author,host,parentid,date,con);
+		return "publish conclusion";
+	}
+	
 	public String AddFavorite(){
 		Mysql sql=new Mysql();
 		sql.AddFavorite(username,parentid);
@@ -313,6 +336,9 @@ public class Topic implements Action {
 }
 
 
+class conclusion{
+	public String m=new String();
+}
 class Member{
 	public String name=new String();
 }
