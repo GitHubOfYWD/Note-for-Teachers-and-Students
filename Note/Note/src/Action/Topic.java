@@ -17,6 +17,7 @@ public class Topic implements Action {
 	public List<Member>member;
 	public List<Time>time;
 	public String date;
+	public List<UserTopic> ht;
 	
 	public String invitename=new String();
 	public String author=new String();
@@ -26,6 +27,12 @@ public class Topic implements Action {
 	
 	
 	
+	public void setHt(List<UserTopic> ht){
+		this.ht=ht;
+	}
+	public List<UserTopic> getHt(){
+		return this.ht;
+	}
 	public void setDate(String date){
 		this.date=date;
 	}
@@ -139,6 +146,26 @@ public class Topic implements Action {
 		return "show host topic success";
 	}
 	
+	public String ShowAll(){
+		ht=new ArrayList<UserTopic>();
+		Mysql sql=new Mysql();
+		sql.ShowAllTopic(ht,username);
+		System.out.println("show host topic success");
+		return "show all topic";
+	}
+	
+	public String VisitTopic(){
+		tmm=new ArrayList<TopicMemMessage>();
+		Mysql sql=new Mysql();
+		sql.ShowAllMessage(tmm,topic,author,host,parentid);
+		System.out.print("show here");
+		for(int i=0;i<tmm.size();i++){
+			System.out.print(tmm.get(i).message);
+		}
+		System.out.println("show all message in a topic");
+		return "visit topic";
+	}
+	
 	public String ShowInvited(){
 		tpm=new ArrayList<TopicMessage>();
 		Mysql sql=new Mysql();
@@ -174,6 +201,19 @@ public class Topic implements Action {
 		member=new ArrayList<Member>();
 		sql.ShowMember(host,topic,member);
 		return "show member";
+	}
+	
+	public String Join(){
+		Mysql sql=new Mysql();
+		if(sql.JoinTopic(username,topic,host).equals("success")){;
+			message="join successfully";
+			return "join topic";
+		}
+		else
+		{
+			message="the user is already in the group";
+			return "join topic";
+		}
 	}
 	
 	

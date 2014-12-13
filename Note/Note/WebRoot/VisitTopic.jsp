@@ -31,30 +31,9 @@
 					<br>
                 	 <s:form>
 						<tr><td><strong><font size="5"><s:property value="topic" /></font></strong></td></tr>
-						<!-- <tr><td><strong><font size="5"><s:property value="username" />的观点</font></strong></td></tr> -->
-					</s:form>
-					
-					<s:form>
-					<tr><td><s:a href="topic_GoPublish.action?username=%{username}&password=%{password}&topic=%{topic}&host=%{host}&parentid=%{parentid}">增加新的结论</s:a><tr><td>
-					</s:form>
-					<!--
-					<s:form>
-					<a><strong><font size="2">邀请组员</font></strong></a> <br class="spacer" />
-					</s:form>
-					<s:form action="topic_SentInvitation" theme="simple">
-					<s:textfield name="username" label="用户：" value="%{username}" style="display:none"/>
-					<s:textfield name="password"   value="%{password}" style="display:none"/>
-					<s:textfield name="topic" label="话题：" value="%{topic}" style="display:none"/>
-					<s:textfield name="host" value="%{host}" style="display:none"/>
-					<s:textfield name="author" value="%{author}" style="display:none"/>
-					<s:textfield name="parentid" value="%{parentid}" style="display:none"/>
-					<s:textfield name="invitename" label="用户名" value=""/>
-					<s:submit style="width:100px" value="邀请"/>
-					</s:form>
-					<s:form>
-					<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
+						<tr><td><s:a href="topic_Join.action?topic=%{topic}&username=%{username}&password=%{password}&host=%{host}">加入讨论组</s:a></td></tr>
+						<tr><td><strong><font size="3" color="red"><s:property value="message" /></font></strong></td></tr>
 					</s:form>	
-					  -->			
                 </div>
 				
             </div><!--end of left content-->

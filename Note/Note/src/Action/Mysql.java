@@ -442,6 +442,58 @@ public class Mysql {
 	}
 	
 
+	
+	
+	public void ShowAllTopic(List<UserTopic>ht,String username){
+		conn = getConnection();
+		String result = new String();
+		try {
+			String sql = "select distinct topic,host from userinfo";
+			st = (Statement) conn.createStatement();
+			System.out.println(sql);
+			ResultSet rs = st.executeQuery(sql);
+			UserTopic tmp;
+			while (rs.next()) { // 判断是否还有下一个数据
+				tmp = new UserTopic();
+				tmp.topic = rs.getString("topic");
+				tmp.host = rs.getString("host");
+				tmp.username = username;
+				ht.add(tmp);
+			}
+			conn.close(); // 关闭数据库连接
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	public String JoinTopic(String username,String topic,String host){
+		conn = getConnection();
+		String result = new String();
+		try {
+			String sql = "select * from userinfo where username='" 
+					+ username
+					+ "' and topic='"
+					+topic
+					+"'";
+			st = (Statement) conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			if (rs.next()) {
+				return "fail";
+			}
+			sql = "insert into userinfo(username,topic,host,flag) values('"
+					+ username + "','" + topic + "','" + host + "','0')";
+			st = (Statement) conn.createStatement();
+			st.execute(sql);
+			conn.close(); // 关闭数据库连接
+			return "success";
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			return "fail";
+		}
+	}
+	
+	
+	
 	public void UserTopic(String username, List<UserTopic> ht,
 			List<UserTopic> it) {
 

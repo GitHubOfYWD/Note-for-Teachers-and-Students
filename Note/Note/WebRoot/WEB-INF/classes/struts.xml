@@ -33,6 +33,9 @@
       
       <action name="topic_*" class="Action.Topic" method="{1}">
          <result name="show host topic success">/HostTopic1.jsp</result>
+         <result name="show all topic">/ShowAllTopic.jsp</result>  
+         <result name="visit topic">/VisitTopic.jsp</result> 
+         <result name="join topic" type="redirect">/topic_VisitTopic.action?username=${username}&amp;password=${password}&amp;topic=${topic}&amp;host=${host}&amp;message=${message}</result>  
          <result name="sent invitation" type="redirect">topic_ShowTime.action?username=${username}&amp;password=${password}&amp;topic=${topic}&amp;host=${host}&amp;message=${message}</result>
          <result name="show invited topic success">/InvitedTopic1.jsp</result>
          <result name="go publish">/GoPublish1.jsp</result>
